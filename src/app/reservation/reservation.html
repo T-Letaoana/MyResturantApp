@@ -1,0 +1,16 @@
+<div class="reservation">
+  <h2>Book a Table</h2>
+
+  <form (ngSubmit)="submit()" #form="ngForm">
+    <label>Name</label>
+    <input type="text" name="name" [(ngModel)]="reservation.name" required>
+
+    <label>Date</label>
+    <input type="date" name="date" [(ngModel)]="reservation.date" required>
+
+    <label>Number of Guests</label>
+    <input type="number" name="guests" [(ngModel)]="reservation.guests" min="1" required>
+
+    <button type="submit">Reserve</button>
+  </form>
+</div>
