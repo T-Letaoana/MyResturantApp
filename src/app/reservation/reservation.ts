@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,13 +10,15 @@ import { FormsModule } from '@angular/forms';
 })
 export class ReservationComponent {
 
-  reservation = {
-    name: '',
-    date: '',
-    guests: 1
-  };
+  name = signal('');
+  date = signal('');
+  guests = signal(1);
+
+  reservationSummary = computed(() =>
+    `${this.name()} - ${this.guests()} guest(s)`
+  );
 
   submit() {
-    alert(`Reservation made for ${this.reservation.name}`);
+    alert(`Reservation made for ${this.name()}`);
   }
 }

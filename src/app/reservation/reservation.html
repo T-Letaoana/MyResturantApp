@@ -3,13 +3,13 @@
 
   <form (ngSubmit)="submit()" #form="ngForm">
     <label>Name</label>
-    <input type="text" name="name" [(ngModel)]="reservation.name" required>
+    <input type="text" [ngModel]="name()" (ngModelChange)="name.set($event)" name="name" required>
 
     <label>Date</label>
-    <input type="date" name="date" [(ngModel)]="reservation.date" required>
+    <input type="date" [ngModel]="date()" (ngModelChange)="date.set($event)" name="date" required>
 
     <label>Number of Guests</label>
-    <input type="number" name="guests" [(ngModel)]="reservation.guests" min="1" required>
+    <input type="number" [ngModel]="guests()" (ngModelChange)="guests.set($event)" name="guests" min="1" required>
 
     <button type="submit">Reserve</button>
   </form>
