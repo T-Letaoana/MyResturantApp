@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reservation',
-  standalone: true,
   imports: [FormsModule],
   templateUrl: './reservation.html',
   styleUrls: ['./reservation.scss']
