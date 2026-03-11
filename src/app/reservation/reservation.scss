@@ -20,8 +20,9 @@ button {
   padding: 10px;
   border: none;
   cursor: pointer;
-}
-
-button:hover {
-  background-color: #1b5e20;
+  transition: all 0.3s;
+  
+  &:hover {
+    background-color: #1b5e20;
+  }
 }

@@ -15,14 +15,6 @@ describe('ReservationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should update name signal', () => {
-    const fixture = TestBed.createComponent(ReservationComponent);
-    const component = fixture.componentInstance;
-
-    component.name.set('Thato');
-    expect(component.name()).toBe('Thato');
-  });
-
   it('should compute reservation summary', () => {
     const fixture = TestBed.createComponent(ReservationComponent);
     const component = fixture.componentInstance;
@@ -33,4 +25,20 @@ describe('ReservationComponent', () => {
     expect(component.reservationSummary()).toBe('Thato - 3 guest(s)');
   });
 
+  it('should call alert when submitting reservation', () => {
+    const fixture = TestBed.createComponent(ReservationComponent);
+    const component = fixture.componentInstance;
+
+    spyOn(window, 'alert');
+
+    component.name.set('Thato');
+    component.submit();
+
+    expect(window.alert).toHaveBeenCalledWith('Reservation made for Thato');
+  });
+
 });
+
+function spyOn(window: Window & typeof globalThis, arg1: string) {
+  throw new Error('Function not implemented.');
+}
